@@ -1,0 +1,8 @@
+.star {
+  color: #ccc;
+}
+
+.star.filled {
+  color: gold;
+}
+

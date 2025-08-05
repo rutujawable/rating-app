@@ -1,0 +1,100 @@
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 15px;
+  margin-top: 80px;
+}
+
+
+h2, h4, h5 {
+  font-weight: 600;
+  color: #333;
+}
+
+
+.card {
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+}
+
+.card .card-body {
+  padding: 1.5rem;
+}
+
+
+.star {
+  color: #ccc;
+  font-size: 1.25rem;
+  transition: color 0.3s;
+}
+
+.star.filled {
+  color: gold;
+}
+
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  font-size: 16px;
+}
+
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .card .card-body {
+    padding: 1rem;
+  }
+
+  .table th,
+  .table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .star {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .table th,
+  .table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .star {
+    font-size: 1rem;
+  }
+
+  .card {
+    margin: 0 -10px;
+  }
+}

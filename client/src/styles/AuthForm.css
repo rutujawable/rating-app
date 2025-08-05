@@ -1,0 +1,66 @@
+/* Wrapper for the entire auth page */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+/* Box around the form */
+.form-box {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Error text */
+.error-text {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* For the password input and eye icon */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+/* Eye icon */
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #6c757d;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Ensure consistent spacing between inputs */
+.form-control {
+  margin-top: 15px;
+}
+
+button {
+  margin-top: 20px;
+}
+.auth-wrapper{
+  margin-top: 80px;
+}
