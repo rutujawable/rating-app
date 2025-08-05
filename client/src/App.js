@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import Login from './components/pages/Login/Login.js';
-import Signup from './components/pages/Signup/Signup.js';
-import DashboardAdmin from './components/pages/DashboardAdmin/DashboardAdmin.js';
-import DashboardOwner from './components/pages/DashboardOwner/DashboardOwner.js';
-import DashboardUser from './components/pages/DashboardUser/DashboardUser.js';
+import Login from './pages/Login/Login.js';
+import Signup from './pages/Signup/Signup.js';
+import DashboardAdmin from './pages/DashboardAdmin/DashboardAdmin.js';
+import DashboardOwner from './pages/DashboardOwner/DashboardOwner.js';
+import DashboardUser from './pages/DashboardUser/DashboardUser.js';
 
 const ProtectedRoute = ({ element: Component, role }) => {
   const navigate = useNavigate();

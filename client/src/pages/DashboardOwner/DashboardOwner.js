@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import API from '../../../utils/api.js';
-import Header from '../../Header/Header.js';
-import Footer from '../../Footer/Footer.js';
+import API from '../../utils/api.js';
+import Header from '../../components/Header/Header.js';
+import Footer from '../../components/Footer/Footer.js';
 import { FaUserAlt } from 'react-icons/fa';
 import './DashboardOwner.css';
 

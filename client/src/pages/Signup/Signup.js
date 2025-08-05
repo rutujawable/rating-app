@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import API from '../../../utils/api.js';
-import "./../../../styles/AuthForm.css"
-import Header from '../../Header/Header.js';
-import Footer from '../../Footer/Footer.js';
+import API from '../../utils/api.js';
+import "./../../styles/AuthForm.css"
+import Header from '../../components/Header/Header.js';
+import Footer from '../../components/Footer/Footer.js';
 
 function Signup() {
   const navigate = useNavigate();
