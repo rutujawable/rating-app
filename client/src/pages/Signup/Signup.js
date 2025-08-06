@@ -66,7 +66,7 @@ function Signup() {
               value={form.name}
               onChange={handleChange}
               className="form-control"
-              placeholder="Full Name"
+              placeholder="Enter your Full Name"
             />
             {errors.name && <p className="error-text">{errors.name}</p>}
 
@@ -76,7 +76,7 @@ function Signup() {
               value={form.email}
               onChange={handleChange}
               className="form-control"
-              placeholder="Email"
+              placeholder="Enter your Email"
             />
             {errors.email && <p className="error-text">{errors.email}</p>}
 
@@ -85,7 +85,7 @@ function Signup() {
               value={form.address}
               onChange={handleChange}
               className="form-control"
-              placeholder="Address"
+              placeholder="Enter your Address"
             />
             {errors.address && <p className="error-text">{errors.address}</p>}
 
