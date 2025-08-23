@@ -1,0 +1,50 @@
+/* Background Gradient for Navbar */
+.header {
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  padding: 12px 30px;
+  opacity: 0;
+  transform: translateY(-60px);
+  transition: all 0.8s ease;
+}
+
+.header.slide-down {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Branding */
+.header .brand span {
+  transition: color 0.3s ease;
+}
+
+.header .brand:hover span {
+  color: #f8d210; /* golden highlight */
+}
+
+/* Animated Glow Buttons */
+.btn-glow {
+  background: transparent;
+  border: 1px solid #00c6ff;
+  color: #00c6ff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-glow.success {
+  border-color: #2ecc71;
+  color: #2ecc71;
+}
+
+.btn-glow:hover {
+  background: #00c6ff;
+  color: white;
+  box-shadow: 0 0 12px rgba(0, 198, 255, 0.8);
+}
+
+.btn-glow.success:hover {
+  background: #2ecc71;
+  color: white;
+  box-shadow: 0 0 12px rgba(46, 204, 113, 0.8);
+}
