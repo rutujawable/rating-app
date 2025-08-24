@@ -4,6 +4,8 @@ import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
 import './DashboardUser.css';
 import { FaStore } from 'react-icons/fa';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 function DashboardUser() {
   const [stores, setStores] = useState([]);
@@ -27,18 +29,18 @@ function DashboardUser() {
         });
         setRatings(userRatings);
       })
-      .catch(() => alert('Failed to load stores'));
+      .catch(() => toast.error('Failed to load stores'));
   }, []);
 
   const handleRating = async (storeId) => {
     const newRating = ratings[storeId];
     if (!newRating || newRating < 1 || newRating > 5) {
-      return alert('Enter rating between 1 and 5');
+      return toast.error('Enter rating between 1 and 5');
     }
 
     try {
       await API.put('/rate', { storeId, userId, rating: newRating });
-      alert('Your rating has been successfully saved!');
+      toast.success('Your rating has been successfully saved!');
       setStores((prevStores) =>
         prevStores.map((store) => {
           if (store._id !== storeId) return store;
@@ -51,7 +53,7 @@ function DashboardUser() {
       );
       setEditing('');
     } catch (err) {
-      alert('Rating failed');
+      toast.error('Rating failed');
     }
   };
 
@@ -147,6 +149,7 @@ function DashboardUser() {
         </div>
       </div>
       <Footer />
+      <Toaster/>
     </>
   );
 }

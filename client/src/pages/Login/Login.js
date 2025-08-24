@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API from '../../utils/api.js';
-import "./../../styles/AuthForm.css"
+import './../../styles/AuthForm.css';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
+import DemoCredentials from '../../components/DemoCredentials/DemoCredentials.js';
+import { Toaster, toast } from 'react-hot-toast';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -20,12 +22,16 @@ function Login() {
       localStorage.setItem('role', res.data.user.role);
 
       const role = res.data.user.role;
-      alert('Login successful!');
-      if (role === 'admin') navigate('/dashboard/admin');
-      else if (role === 'owner') navigate('/dashboard/owner');
-      else navigate('/dashboard/user');
+      toast.success('Login successfully');
+
+      // Delay navigation to let the toast render, OR move <Toaster> to App.js
+      setTimeout(() => {
+        if (role === 'admin') navigate('/dashboard/admin');
+        else if (role === 'owner') navigate('/dashboard/owner');
+        else navigate('/dashboard/user');
+      }, 1500);
     } catch (err) {
-      alert(err.response?.data?.error || 'Login failed');
+      toast.error(err.response?.data?.error || 'Login failed');
     }
   };
 
@@ -38,7 +44,7 @@ function Login() {
       <Header />
       <div className="auth-wrapper">
         <div className="form-box">
-          <h2>Login</h2>
+          <h2>User Login</h2>
           <form onSubmit={handleLogin}>
             <input
               type="email"
@@ -48,7 +54,6 @@ function Login() {
               placeholder="Email"
               required
             />
-
             <div className="password-wrapper">
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -63,16 +68,17 @@ function Login() {
                 onClick={togglePasswordVisibility}
               ></i>
             </div>
-
             <button className="btn btn-primary w-100 mt-3">Login</button>
           </form>
-
           <p className="mt-3 text-center">
             Don't have an account? <a href="/signup">Signup</a>
           </p>
+          <DemoCredentials setEmail={setEmail} setPassword={setPassword} />
         </div>
       </div>
       <Footer />
+      {/* Keep Toaster mounted; move to App.js if you want it global */}
+      <Toaster position="top-center" />
     </>
   );
 }

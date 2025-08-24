@@ -4,6 +4,7 @@ import API from '../../utils/api.js';
 import "./../../styles/AuthForm.css"
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
+import { Toaster, toast } from 'react-hot-toast';
 
 function Signup() {
   const navigate = useNavigate();
@@ -21,8 +22,8 @@ function Signup() {
     const errs = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
-    if (form.name.length < 20 || form.name.length > 60)
-      errs.name = 'Name must be 20–60 characters.';
+    // if (form.name.length < 20 || form.name.length > 60)
+    //   errs.name = 'Name must be 20–60 characters.';
     if (!emailRegex.test(form.email))
       errs.email = 'Please enter a valid email address.';
     if (form.address.length > 400)
@@ -43,10 +44,10 @@ function Signup() {
     if (Object.keys(validationErrors).length > 0) return;
     try {
       await API.post('/signup', form);
-      alert('Signup successful!');
-      navigate('/');
+     toast.success("signup successfully")
+      setTimeout(() => navigate('/'), 1500);
     } catch (err) {
-      alert(err.response?.data?.error || 'Signup failed');
+      toast.error(err.response?.data?.error || 'Signup failed');
     }
   };
 
@@ -112,7 +113,6 @@ function Signup() {
               className="form-control mt-2"
             >
               <option value="user">User</option>
-              <option value="admin">Admin</option>
             </select>
 
             <button className="btn btn-success w-100 mt-3">Sign Up</button>
@@ -123,6 +123,8 @@ function Signup() {
         </div>
       </div>
       <Footer />
+      <Toaster/>
+      
     </>
   );
 }

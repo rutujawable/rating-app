@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
 import { FaUserAlt } from 'react-icons/fa';
 import './DashboardOwner.css';
+import {toast,Toaster} from 'react-hot-toast';
 
 function DashboardOwner() {
   const [store, setStore] = useState(null);
@@ -27,7 +28,7 @@ function DashboardOwner() {
         : 0;
       setAvgRating(avg);
     } catch (err) {
-      alert('Error loading store info');
+      toast.error('Error loading store info');
     }
   };
 
@@ -79,6 +80,7 @@ function DashboardOwner() {
         )}
       </div>
       <Footer />
+      <Toaster/>
     </>
   );
 }

@@ -6,6 +6,7 @@ import DashboardAdmin from './pages/DashboardAdmin/DashboardAdmin.js';
 import DashboardOwner from './pages/DashboardOwner/DashboardOwner.js';
 import DashboardUser from './pages/DashboardUser/DashboardUser.js';
 
+
 const ProtectedRoute = ({ element: Component, role }) => {
   const navigate = useNavigate();
   useEffect(() => {

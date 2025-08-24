@@ -3,6 +3,7 @@ import API from '../../utils/api.js';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
 import './DashboardAdmin.css';
+import {toast,Toaster} from 'react-hot-toast';
 
 function DashboardAdmin() {
   const [users, setUsers] = useState([]);
@@ -44,11 +45,11 @@ function DashboardAdmin() {
     e.preventDefault();
     try {
       await API.post('/signup', newUser);
-      alert('User added successfully');
+      toast.success('User added successfully');
       setNewUser({ name: '', email: '', address: '', password: '', role: 'user' });
       fetchAll();
     } catch (err) {
-      alert(err.response?.data?.error || 'Failed to add user');
+      toast.error(err.response?.data?.error || 'Failed to add user');
     }
   };
 
@@ -64,11 +65,11 @@ function DashboardAdmin() {
         storeAddress: newStore.address
       });
 
-      alert('Store owner and store created successfully');
+      toast.success('Store owner and store created successfully');
       setNewStore({ name: '', email: '', address: '', password: '' });
       fetchAll();
     } catch (err) {
-      alert(err.response?.data?.error || 'Failed to add store and owner');
+      toast.error(err.response?.data?.error || 'Failed to add store and owner');
     }
   };
 
@@ -188,6 +189,7 @@ function DashboardAdmin() {
         </div>
       </div>
       <Footer />
+      <Toaster/>
     </>
   );
 }
